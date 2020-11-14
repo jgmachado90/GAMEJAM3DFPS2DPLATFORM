@@ -40,7 +40,7 @@ public class move : MonoBehaviour
 
         if (leftKey)
         {
-
+            Debug.Log("LEFT KEY");
             transform.parent = null;
             rb.AddForce(-transform.right * moveSpeed, ForceMode.Acceleration);
             transform.parent = parent;
@@ -60,6 +60,7 @@ public class move : MonoBehaviour
                 transform.parent = null;
                 rb.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
                 transform.parent = parent;
+                Debug.Log("jump on air");
                 inAir = true;
             }
         }
@@ -90,8 +91,11 @@ public class move : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        other.GetComponent<CameraChanger>().CameraChange(transform);
+        if (other.GetComponent<CameraChanger>())
+        {
+            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            other.GetComponent<CameraChanger>().CameraChange(transform);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -115,6 +119,7 @@ public class move : MonoBehaviour
 
         if(collision.transform.tag == "Floor")
         {
+            Debug.Log("in air collision false");
             inAir = false;
         }
     }
@@ -123,7 +128,8 @@ public class move : MonoBehaviour
     {
         if(collision.transform.tag == "Floor")
         {
-            inAir = true;
+            Debug.Log("in air collision exit true");
+            //inAir = true;
         }
     }
 
