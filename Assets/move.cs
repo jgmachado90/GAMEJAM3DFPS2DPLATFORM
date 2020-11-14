@@ -6,12 +6,12 @@ public class move : MonoBehaviour
 {
 
     public float moveSpeed;
-    public float maxSpeed;
+    public float maxSpeed = 3.5f;
     public float gravity;
     public float jumpSpeed;
     public Rigidbody rb;
     public bool canMove = true;
-    public bool isFalling = true;
+    public bool inAir = true;
     private Transform parent;
     
 
@@ -28,14 +28,17 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isFalling)
+        if (inAir)
         {
             transform.parent = null;
             rb.AddForce(-transform.up * gravity, ForceMode.Acceleration);
             transform.parent = parent;
         }
-        
-        if (Input.GetKey(KeyCode.J))
+        bool leftKey = Input.GetKey(KeyCode.J);
+        bool rightKey = Input.GetKey(KeyCode.L);
+        bool jumpKey = Input.GetKey(KeyCode.I);
+
+        if (leftKey)
         {
 
             transform.parent = null;
@@ -43,23 +46,46 @@ public class move : MonoBehaviour
             transform.parent = parent;
             //transform.position = new Vector3(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
         }
-
-        if (Input.GetKey(KeyCode.L))
+        if (rightKey)
         {
             transform.parent = null;
             rb.AddForce(transform.right * moveSpeed, ForceMode.Acceleration);
             transform.parent = parent;
             //transform.position = new Vector3(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
         }
-
-        if (Input.GetKeyDown(KeyCode.I))
+        if (jumpKey)
         {
-            transform.parent = null;
-            rb.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
-            transform.parent = parent;
-            isFalling = true;
+            if (!inAir)
+            {
+                transform.parent = null;
+                rb.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
+                transform.parent = parent;
+                inAir = true;
+            }
         }
-        
+        if (!leftKey && !rightKey)
+        {
+            var newVelocity = rb.velocity;
+            var newY = newVelocity.y;
+            // diminui
+            newVelocity = Vector3.Lerp(newVelocity, Vector3.zero, 0.2f);
+            if (inAir)
+                newVelocity.y = newY;
+            rb.velocity = newVelocity;
+        }
+
+        // capa a velocidade
+        var y = rb.velocity.y;
+        var velocity = rb.velocity;
+        if (inAir)
+        {
+            velocity.x = Mathf.Clamp(velocity.x, -maxSpeed, maxSpeed);
+            rb.velocity = velocity;
+        }
+        else
+        {
+            rb.velocity = rb.velocity.normalized * Mathf.Min(rb.velocity.magnitude, maxSpeed);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -89,7 +115,7 @@ public class move : MonoBehaviour
 
         if(collision.transform.tag == "Floor")
         {
-            isFalling = false;
+            inAir = false;
         }
     }
 
@@ -97,7 +123,7 @@ public class move : MonoBehaviour
     {
         if(collision.transform.tag == "Floor")
         {
-            isFalling = true;
+            inAir = true;
         }
     }
 
