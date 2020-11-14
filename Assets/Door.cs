@@ -10,6 +10,8 @@ public class Door : MonoBehaviour
     public Transform closedTarget;
     public bool canAct = true;
 
+    public ActionObject actionObject;
+
     public float speed = 1.0f;
     private void Awake()
     {
@@ -17,6 +19,14 @@ public class Door : MonoBehaviour
         //currentTarget = target;
 
     }
+
+    private void Start() {
+        if (actionObject != null){
+            actionObject.onActive += Action;
+            actionObject.onDisactive += Action;
+        }
+    }
+
     public void Action()
     {
         Debug.Log("Dooraction");
