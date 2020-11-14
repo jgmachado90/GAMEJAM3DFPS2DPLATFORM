@@ -9,12 +9,17 @@ public class Button3D : ActionObject {
 
     bool pressed = false, pressedThisFrame = false;
 
+    public bool is2D;
+
     private void Start() {
         animator = GetComponent<Animator>();
     }
 
     private void OnTriggerStay(Collider other) {
-        if (other.gameObject.CompareTag("PlayerFoot") || other.gameObject.CompareTag("Box")){
+        if (is2D && (other.gameObject.CompareTag("Box") || other.gameObject.name == "2DPlayer")){
+            pressedThisFrame = true;
+        }
+        else if (other.gameObject.CompareTag("PlayerFoot") || other.gameObject.CompareTag("Box")){
             pressedThisFrame = true;
         }
     }

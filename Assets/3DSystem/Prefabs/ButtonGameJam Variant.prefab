@@ -19,6 +19,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &8326742537518732515
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903220480068029573}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6589469, y: 0.9233242, z: 1.8693504}
+  m_Center: {x: -0.068880975, y: 0.5149939, z: -0.07062128}
+--- !u!114 &1505364369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903220480068029573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7a4b31b44bca04cb3c51422a476eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8597369537198633428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29,17 +54,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1ae769c756d0739478951ece09db66ae,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.727
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ae769c756d0739478951ece09db66ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ae769c756d0739478951ece09db66ae,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.822088
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ae769c756d0739478951ece09db66ae,
         type: 3}
