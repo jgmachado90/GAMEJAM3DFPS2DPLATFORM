@@ -24,6 +24,9 @@ public class GravityGun : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
+
+
+
             if (grabbedRB)
             {
                 grabbedRB.isKinematic = false;
@@ -35,7 +38,23 @@ public class GravityGun : MonoBehaviour
                 Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
                 if (Physics.Raycast(ray, out hit, maxGrabDistance))
                 {
-                    
+                    if(hit.collider.tag == "Alavanca")
+                    {
+                        if(hit.collider.GetComponent<Alavanca>().activated == false)
+                        {
+                            hit.collider.GetComponent<Alavanca>().Activate();
+                            return;
+                        }
+
+                        if (hit.collider.GetComponent<Alavanca>().activated == true)
+                        {
+                            hit.collider.GetComponent<Alavanca>().Deactivate();
+                            return;
+                        }
+
+
+                    }
+
                     grabbedRB = hit.collider.gameObject.GetComponent<Rigidbody>();
                     Debug.Log("raycasthit  = " + hit.collider.gameObject);
                     if (grabbedRB)
