@@ -61,7 +61,7 @@ public class Door : MonoBehaviour
         if (Vector3.Distance(transform.position, currentTarget.position) < 0.001f)
         {
             canAct = true;
-            Debug.Log("terminou");
+            //Debug.Log("terminou");
             // Swap the position of te cylinder.
             //currentTarget.position *= -1.0f;
         }

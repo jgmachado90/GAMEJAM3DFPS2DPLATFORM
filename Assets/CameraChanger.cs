@@ -13,7 +13,7 @@ public class CameraChanger : MonoBehaviour
     private void Awake()
     {
         // in children to get inactive
-        player = transform.parent.GetComponentInChildren<move>(true);
+        player = transform.parent?.GetComponentInChildren<move>(true);
     }
 
     public void CameraChange(Transform lastPlayerTransform)

@@ -111,12 +111,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 19
-  maxSpeed: 0
-  gravity: 20
+  maxSpeed: 4
+  gravity: 34
   jumpSpeed: 10
   rb: {fileID: 1743073612143126687}
   canMove: 1
-  isFalling: 1
+  inAir: 1
 --- !u!65 &1743073612143126680
 BoxCollider:
   m_ObjectHideFlags: 0
