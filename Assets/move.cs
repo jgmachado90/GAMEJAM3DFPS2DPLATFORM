@@ -6,9 +6,12 @@ public class move : MonoBehaviour
 {
 
     public float moveSpeed;
+    public float gravity;
     public float jumpSpeed;
     public Rigidbody rb;
     public bool canMove = true;
+    public bool isFalling = true;
+    public Transform parent;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,22 +26,35 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isFalling)
+        {
+            transform.parent = null;
+            rb.AddForce(-transform.up * gravity, ForceMode.Acceleration);
+            transform.parent = parent;
+        }
         if (Input.GetKey(KeyCode.J))
         {
-            Debug.Log("vel" + transform.right * moveSpeed);
+     
+            transform.parent = null;
             rb.AddForce(-transform.right * moveSpeed, ForceMode.Acceleration);
+            transform.parent = parent;
             //transform.position = new Vector3(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
         }
 
         if (Input.GetKey(KeyCode.L))
         {
+            transform.parent = null;         
             rb.AddForce(transform.right * moveSpeed, ForceMode.Acceleration);
+            transform.parent = parent;
             //transform.position = new Vector3(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
         }
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, 2f, 0), ForceMode.Impulse);
+            transform.parent = null;
+            rb.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
+            transform.parent = parent;
+            isFalling = true;
         }
     }
 
@@ -54,6 +70,7 @@ public class move : MonoBehaviour
     {
         if (collision.transform.tag == "CameraChanger")
         {
+
             /*if (this.GetComponent<Rigidbody>().velocity.x > 0)
             {
                 this.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -69,5 +86,12 @@ public class move : MonoBehaviour
             collision.transform.GetComponent<CameraChanger>().CameraChange(transform);
             Debug.Log("camera changer");
         }
+
+        if(collision.transform.tag == "Floor")
+        {
+            isFalling = false;
+        }
+
+
     }
 }
