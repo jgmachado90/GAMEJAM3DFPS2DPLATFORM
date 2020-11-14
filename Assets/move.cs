@@ -6,6 +6,7 @@ public class move : MonoBehaviour
 {
 
     public float moveSpeed;
+    public float maxSpeed;
     public float gravity;
     public float jumpSpeed;
     public Rigidbody rb;
@@ -33,9 +34,10 @@ public class move : MonoBehaviour
             rb.AddForce(-transform.up * gravity, ForceMode.Acceleration);
             transform.parent = parent;
         }
+        
         if (Input.GetKey(KeyCode.J))
         {
-     
+
             transform.parent = null;
             rb.AddForce(-transform.right * moveSpeed, ForceMode.Acceleration);
             transform.parent = parent;
@@ -44,7 +46,7 @@ public class move : MonoBehaviour
 
         if (Input.GetKey(KeyCode.L))
         {
-            transform.parent = null;         
+            transform.parent = null;
             rb.AddForce(transform.right * moveSpeed, ForceMode.Acceleration);
             transform.parent = parent;
             //transform.position = new Vector3(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
@@ -57,6 +59,7 @@ public class move : MonoBehaviour
             transform.parent = parent;
             isFalling = true;
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -88,7 +91,15 @@ public class move : MonoBehaviour
         {
             isFalling = false;
         }
-
-
     }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.transform.tag == "Floor")
+        {
+            isFalling = true;
+        }
+    }
+
+
 }

@@ -11,6 +11,7 @@ TagManager:
   - PlayerFoot
   - Box
   - Alavanca
+  - Floor
   layers:
   - Default
   - TransparentFX
