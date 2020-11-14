@@ -11,11 +11,12 @@ public class move : MonoBehaviour
     public Rigidbody rb;
     public bool canMove = true;
     public bool isFalling = true;
-    public Transform parent;
-    // Start is called before the first frame update
-    void Start()
+    private Transform parent;
+    
+
+    private void Awake()
     {
-        
+        parent = transform.parent;
     }
 
     private void OnEnable()
@@ -61,9 +62,7 @@ public class move : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        this.gameObject.SetActive(false);
         other.GetComponent<CameraChanger>().CameraChange(transform);
-        Debug.Log("camera changer");
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -82,9 +81,7 @@ public class move : MonoBehaviour
                 this.GetComponent<Rigidbody>().AddForce(-transform.right * 4, ForceMode.Impulse);
             }
           */
-            this.gameObject.SetActive(false);
             collision.transform.GetComponent<CameraChanger>().CameraChange(transform);
-            Debug.Log("camera changer");
         }
 
         if(collision.transform.tag == "Floor")

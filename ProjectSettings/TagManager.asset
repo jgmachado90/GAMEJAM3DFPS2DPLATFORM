@@ -8,6 +8,8 @@ TagManager:
   - Metal
   - ExplosiveBarrel
   - CameraChanger
+  - PlayerFoot
+  - Box
   layers:
   - Default
   - TransparentFX
