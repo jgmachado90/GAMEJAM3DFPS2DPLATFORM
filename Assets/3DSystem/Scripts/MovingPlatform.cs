@@ -18,11 +18,15 @@ public class MovingPlatform : MonoBehaviour {
 
     float timer = 0;
 
+    public float waiTimer;
+
     Transform previousPlayerParent;
 
     public ActionObject activeObject;
 
     public bool looped;
+
+    bool onWaitTimer;
 
     private void Start() {
         startDuration = duration;
@@ -79,6 +83,7 @@ public class MovingPlatform : MonoBehaviour {
             timer = 0;
             if (looped){
                 targetID = (targetID + 1) % targetPosition.Length;
+                //onWaitTimer = 
             }
         }
     }
