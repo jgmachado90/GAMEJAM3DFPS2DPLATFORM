@@ -54,11 +54,14 @@ public class GravityGun : MonoBehaviour
                             hit.collider.GetComponent<Alavanca>().Deactivate();
                             return;
                         }
-
-
                     }
 
-                    grabbedRB = hit.collider.gameObject.GetComponent<Rigidbody>();
+
+                    if (hit.collider.tag == "Box")
+                    {
+                        hit.collider.GetComponent<BOX2D3D>().OnDeactivate();
+                    }
+                        grabbedRB = hit.collider.gameObject.GetComponent<Rigidbody>();
                     Debug.Log("raycasthit  = " + hit.collider.gameObject);
                     if (grabbedRB)
                     {
