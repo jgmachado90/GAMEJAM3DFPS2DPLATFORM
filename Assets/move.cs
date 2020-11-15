@@ -30,9 +30,9 @@ public class move : MonoBehaviour
     {
         if (inAir)
         {
-            transform.parent = null;
+            /*transform.parent = null;
             rb.AddForce(-transform.up * gravity, ForceMode.Acceleration);
-            transform.parent = parent;
+            transform.parent = parent;*/
         }
         bool leftKey = Input.GetKey(KeyCode.J);
         bool rightKey = Input.GetKey(KeyCode.L);
@@ -58,9 +58,9 @@ public class move : MonoBehaviour
             if (!inAir)
             {
                 transform.parent = null;
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
                 rb.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
                 transform.parent = parent;
-                Debug.Log("jump on air");
                 inAir = true;
             }
         }
@@ -124,14 +124,6 @@ public class move : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if(collision.transform.tag == "Floor")
-        {
-            Debug.Log("in air collision exit true");
-            //inAir = true;
-        }
-    }
 
 
 }

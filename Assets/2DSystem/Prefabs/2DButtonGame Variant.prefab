@@ -66,6 +66,11 @@ PrefabInstance:
       propertyPath: is2D
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2608758629781641856, guid: eba1c9bd171d96640a5f530c5f7ea667,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8125979676632962623, guid: eba1c9bd171d96640a5f530c5f7ea667,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -139,7 +144,12 @@ PrefabInstance:
     - target: {fileID: 8903220480068029573, guid: eba1c9bd171d96640a5f530c5f7ea667,
         type: 3}
       propertyPath: m_Name
-      value: 2DButtonGame
+      value: 2DButtonGame Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903220480068029573, guid: eba1c9bd171d96640a5f530c5f7ea667,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eba1c9bd171d96640a5f530c5f7ea667, type: 3}
