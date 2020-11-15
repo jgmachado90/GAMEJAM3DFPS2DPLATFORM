@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 34112706948955429}
   - component: {fileID: 9090973638481330787}
   - component: {fileID: 8765287568371263838}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ MeshCollider:
   m_GameObject: {fileID: 815843317539882460}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -183,7 +183,7 @@ MeshCollider:
   m_GameObject: {fileID: 5848067627145367907}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 6562960728314583188}
   - component: {fileID: 6562960728314583191}
   - component: {fileID: 6562960728314583190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -315,12 +315,12 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6562960728314583184}
-  m_Material: {fileID: 13400000, guid: 5cff33f03642dda498a9eed4f073f489, type: 2}
+  m_Material: {fileID: 13400000, guid: 4933c453e89c9e345bc0c17473852e00, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0393938, y: 1, z: 1}
-  m_Center: {x: -0.019696519, y: 6.820721e-15, z: 1.0053371e-21}
+  m_Size: {x: 1.176911, y: 1, z: 1}
+  m_Center: {x: -0.08845494, y: 1.4967445e-14, z: 7.1997025e-22}
 --- !u!1 &6562960728583126213
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,8 +392,8 @@ Camera:
   m_GameObject: {fileID: 6562960728958902804}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -414,7 +414,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 567
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 6562960728960282087}
   - component: {fileID: 6562960728960282086}
   - component: {fileID: 6562960728960282081}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 6562960729050957283}
   - component: {fileID: 6562960729050957282}
   - component: {fileID: 6562960729050957293}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6562960729050957295}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4933c453e89c9e345bc0c17473852e00, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 6562960729113858170}
   - component: {fileID: 6562960729113858149}
   - component: {fileID: 6562960729113858148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (4)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -780,20 +780,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2DPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 1743073612143126685, guid: 0a7cbc9d938aa1743affe319770cdb21,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1743073612143126686, guid: 0a7cbc9d938aa1743affe319770cdb21,
         type: 3}
       propertyPath: jumpSpeed
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1743073612143126686, guid: 0a7cbc9d938aa1743affe319770cdb21,
         type: 3}
       propertyPath: inAir
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1743073612143126686, guid: 0a7cbc9d938aa1743affe319770cdb21,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743073612143126686, guid: 0a7cbc9d938aa1743affe319770cdb21,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1743073612143126687, guid: 0a7cbc9d938aa1743affe319770cdb21,
         type: 3}
       propertyPath: m_Constraints
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743073612143126687, guid: 0a7cbc9d938aa1743affe319770cdb21,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743073612143126687, guid: 0a7cbc9d938aa1743affe319770cdb21,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743073612143126687, guid: 0a7cbc9d938aa1743affe319770cdb21,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a7cbc9d938aa1743affe319770cdb21, type: 3}
