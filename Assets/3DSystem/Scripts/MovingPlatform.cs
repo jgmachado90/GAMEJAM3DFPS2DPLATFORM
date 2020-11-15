@@ -28,6 +28,8 @@ public class MovingPlatform : MonoBehaviour {
 
     bool onWaitTimer;
 
+    public bool notSetAsParent;
+
     private void Start() {
         startDuration = duration;
         targetPosition = new Vector3[2];
