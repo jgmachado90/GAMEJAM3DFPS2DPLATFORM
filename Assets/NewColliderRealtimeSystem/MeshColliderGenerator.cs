@@ -98,7 +98,7 @@ public class MeshColliderGenerator : MonoBehaviour
         {
             Vector3 direction = (point - transform.position).normalized;  
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, 1 << 8))
+            if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, 1 << 9))
             {
                 //pointsOnWall.Add(wall.transform.InverseTransformPoint(hit.point));
                 pointsOnWall.Add(hit.point);
@@ -114,9 +114,9 @@ public class MeshColliderGenerator : MonoBehaviour
         List<Vector3> pointsToCollider = new List<Vector3>();
         foreach(Point p in pointsHulled)
         {
-            Vector3 newPoint = wall.transform.InverseTransformPoint(new Vector3((float)p.x, (float)p.y, wall.transform.position.z-0.2f));
+            Vector3 newPoint = wall.transform.InverseTransformPoint(new Vector3((float)p.x, (float)p.y, wall.transform.position.z-0.8f));
             pointsToCollider.Add(newPoint);
-            Vector3 newPointWithZ = wall.transform.InverseTransformPoint(new Vector3((float)p.x + 0.01f, (float)p.y + 0.01f, wall.transform.position.z + 0.2f));
+            Vector3 newPointWithZ = wall.transform.InverseTransformPoint(new Vector3((float)p.x + 0.01f, (float)p.y + 0.01f, wall.transform.position.z + 0.8f));
             pointsToCollider.Add(newPointWithZ);
         }
        

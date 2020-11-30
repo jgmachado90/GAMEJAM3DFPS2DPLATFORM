@@ -217,8 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd82714500df8ca44a53373b95ae457c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 4300000, guid: e3b68d32874e47f499034af31564b024, type: 3}
-  cubeParent: {fileID: 0}
+  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  cubeParent: {fileID: 1345950108}
   wall: {fileID: 1681743878}
   points: []
   pointsOnWall: []
